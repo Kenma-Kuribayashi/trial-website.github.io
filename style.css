@@ -164,3 +164,24 @@ footer {
     .info-table th, .info-table td { display: block; width: 100%; }
     .info-table th { background-color: transparent; padding-bottom: 5px; color: #8b0000; }
 }
+
+/* メニュー画像用のスタイル追加 */
+.menu-banner {
+    width: 100%;
+    margin-bottom: 40px; /* 画像と下のカードの間の余白 */
+    text-align: center;
+}
+
+.menu-banner img {
+    max-width: 100%; /* 横幅いっぱいに広げる */
+    height: auto;
+    border-radius: 12px; /* 角を少し丸くして柔らかい印象に */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 軽い影をつけて浮かび上がらせる */
+    border: 4px solid #fff; /* 写真の枠線 */
+}
+
+/* 幻のたいやき（highlight）の枠を少し強調 */
+.menu-item.highlight {
+    border: 2px solid #8b0000;
+    background-color: #fff9f9;
+}
