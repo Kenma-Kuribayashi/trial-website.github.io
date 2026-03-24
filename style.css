@@ -1,69 +1,166 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-
-/* 全体の基本スタイル */
-html, body {
-    height: 100%; /* ページ全体の高さを確保 */
-    margin: 0; /* 余白をなくす */
-    font-family: 'Noto Sans JP', sans-serif; /* 日本語フォント */
-    text-align: center; /* テキストを中央揃え */
-    background: linear-gradient(135deg, #a2d2ff, #d0f4de); /* 水色系のグラデーション背景 */
-    color: #333; /* 文字の基本色 */
+/* 基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* フレックスボックスでコンテンツを画面いっぱいに広げる */
 body {
-    display: flex;
-    flex-direction: column; /* 縦方向のレイアウト */
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fdfcf0; /* 温かみのある和紙のような色 */
 }
 
-/* ヘッダー部分 */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダー */
 header {
-    background: rgba(0, 0, 0, 0.7); /* 半透明の黒背景 */
-    color: white; /* 文字色を白に */
-    padding: 20px; /* 内側の余白 */
-    font-size: 24px; /* 文字の大きさ */
+    background-color: #8b0000; /* 深みのある赤 */
+    color: #fff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* メインコンテンツ（中央揃え） */
-main {
-    flex: 1; /* 残りの空間をすべて埋める */
+header h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
     display: flex;
-    justify-content: center; /* 水平方向の中央揃え */
-    align-items: center; /* 垂直方向の中央揃え */
-    padding: 20px; /* 上下左右の余白 */
+    justify-content: center;
+    margin-top: 10px;
 }
 
-/* プロフィールカードのデザイン */
-.profile {
-    background: white; /* 背景色を白に */
-    padding: 20px; /* 内側の余白 */
-    width: 80%; /* 横幅を80%に */
-    max-width: 400px; /* 最大幅を400pxに */
-    border-radius: 10px; /* 角を丸く */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 影をつけて立体感を出す */
-    text-align: left; /* テキストを左揃え */
+header nav ul li {
+    margin: 0 15px;
 }
 
-/* プロフィール画像 */
-.profile img {
-    width: 100px; /* 幅100px */
-    height: 100px; /* 高さ100px */
-    border-radius: 50%; /* 円形に */
-    object-fit: cover; /* 画像を適切にトリミング */
-    margin-bottom: 10px; /* 画像下に余白 */
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
 }
 
-/* セクションタイトル */
-h2 {
-    color: #0077b6; /* 水色系のアクセントカラー */
-    font-size: 20px; /* 文字サイズ */
-    margin-top: 15px; /* 上の余白 */
+/* ヒーローセクション */
+.hero {
+    height: 300px;
+    background-color: #e0d5c1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://via.placeholder.com/1200x400?text=Taiyaki+Ueda'); /* 本来はここに店舗写真 */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
 }
 
-/* フッター（ページ最下部に固定） */
+.hero h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* セクション共通 */
+.section {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-family: 'Noto Serif JP', serif;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #8b0000;
+}
+
+/* メニュー */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.menu-item h3 {
+    margin-bottom: 10px;
+    color: #8b0000;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.badge {
+    display: inline-block;
+    background: #d9534f;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+/* 店舗情報テーブル */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.info-table th, .info-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-table th {
+    width: 30%;
+    text-align: left;
+    background-color: #f9f9f9;
+}
+
+/* フッター */
 footer {
-    background: rgba(0, 0, 0, 0.7); /* 半透明の黒背景 */
-    color: white; /* 文字色を白に */
-    padding: 10px; /* 内側の余白 */
-    text-align: center; /* 中央揃え */
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .hero h2 { font-size: 1.5rem; }
+    .info-table th, .info-table td { display: block; width: 100%; }
+    .info-table th { background-color: transparent; padding-bottom: 5px; color: #8b0000; }
 }
